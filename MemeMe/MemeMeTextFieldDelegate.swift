@@ -27,4 +27,10 @@ extension MemeMeViewController : UITextFieldDelegate {
             textFieldFirstSelected[textField.tag] = true
         }
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+     
+        hideKeyboard()
+        return true
+    }
 }

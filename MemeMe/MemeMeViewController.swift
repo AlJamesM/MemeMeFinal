@@ -78,7 +78,6 @@ class MemeMeViewController: UIViewController {
     func setupInitialButtonsAvailability() {
         
         // Initially disable the following
-        cancelButton.isEnabled                 = false
         actionButton.isEnabled                 = false
         memeImageView.isUserInteractionEnabled = false
     }
@@ -231,18 +230,11 @@ class MemeMeViewController: UIViewController {
     // reset imageview to default settings
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
         
-        // reset textField to virgin status and default content
-        textFieldTop.text         = kMemeTextDefault[kMemeTextTop]
-        textFieldBottom.text      = kMemeTextDefault[kMemeTextBottom]
-        
-        textFieldFirstSelected    = [ true, true ]
-        
-        memeImageView.image       = nil                      // remove image
-        memeImageView.frame       = memeContainerView.bounds // reset imageView frame
-        
-        cancelButton.isEnabled    = false
-        actionButton.isEnabled    = false
-        memeImageView.isUserInteractionEnabled = false
+        if let nav = self.navigationController {
+            nav.popViewController(animated: true)
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     // MARK: - Misc

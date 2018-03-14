@@ -57,8 +57,7 @@ extension MemeMeViewController : UIGestureRecognizerDelegate {
                 
             default:
                 
-                print("no action here")
-                
+                debugPrint("no action here")
             }
         }
     }
